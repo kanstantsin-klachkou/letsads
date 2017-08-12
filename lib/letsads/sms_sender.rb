@@ -18,10 +18,10 @@ class Letsads::SmsSender
   end
 
   def generated_xml phone_numbers, message
-   @generated_xml ||= xml_generator.send_sms_xml phone_numbers, message
+   @generated_xml ||= xml_builder.send_sms_xml phone_numbers, message
   end
 
-  def xml_generator
-    @xml_generator ||= Letsads::XMLGenerator.new
+  def xml_builder
+    @xml_builder ||= Letsads::XMLBuilder.new
   end
 end

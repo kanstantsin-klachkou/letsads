@@ -1,0 +1,2 @@
+class Letsads::XMLBuilder
+end
