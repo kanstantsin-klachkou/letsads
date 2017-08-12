@@ -4,11 +4,11 @@ class Letsads::XMLBuilder
       xml.root {
         xml.request {
           xml.auth {
-            xml.login '@login'
-            xml.password '@password'
+            xml.login Letsads::Configuration.login
+            xml.password Letsads::Configuration.password
           }
           xml.message {
-            xml.from '@sender'
+            xml.from Letsads::Configuration.sender
             xml.text_ text
             recipients.each do |recipient|
               xml.recipient recipient
