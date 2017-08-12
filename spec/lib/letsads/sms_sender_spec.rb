@@ -22,7 +22,7 @@ describe Letsads::SmsSender do
     end
 
     it 'should send request to Letsads API endpont with generated XML in body' do
-      expect(xml_builder).to receive(:send_sms_xml) { generated_xml }
+      expect(xml_builder).to receive(:send_sms_xml).with(one_number, message) { generated_xml }
 
       sending_process_result = sms_sender.send_sms one_number, message
       expect(sending_process_result).to be true

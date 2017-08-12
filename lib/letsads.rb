@@ -1,3 +1,4 @@
+require 'nokogiri'
 require 'rest-client'
 
 require 'letsads/version'
