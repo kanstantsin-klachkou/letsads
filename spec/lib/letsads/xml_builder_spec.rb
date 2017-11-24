@@ -1,19 +1,19 @@
 describe Letsads::XMLBuilder do
-  let(:login) { 'login' }
+  let(:login)    { 'login' }
   let(:password) { 'password' }
-  let(:sender) { 'sender' }
+  let(:sender)   { 'sender' }
 
   before do
-    Letsads::Configuration.login = login
+    Letsads::Configuration.login    = login
     Letsads::Configuration.password = password
-    Letsads::Configuration.sender = sender
+    Letsads::Configuration.sender   = sender
   end
 
   describe '#send_sms_xml'
-    let(:phone_numbers) { [123456789, 123456729] }
-    let(:message) { 'some_text_message' }
-    let(:xml_builder) { Letsads::XMLBuilder.new }
-    let(:generated_xml_string) { xml_builder.send_sms_xml phone_numbers, message }
+    let(:phone_numbers)        { [123456789, 123456729] }
+    let(:message)              { 'some_text_message' }
+    let(:xml_builder)          { Letsads::XMLBuilder.new }
+    let(:generated_xml_string) { xml_builder.send_sms_xml(phone_numbers, message) }
 
     it 'should generate correct xml' do
       doc = Nokogiri::XML(generated_xml_string)

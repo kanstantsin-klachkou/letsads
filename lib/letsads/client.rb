@@ -1,6 +1,6 @@
 class Letsads::Client
-  def send_sms phone_numbers, message
-    sms_sender.send_sms phone_numbers, message
+  def send_sms(phone_numbers, message)
+    sms_sender.send_sms(phone_numbers, message)
   end
 
   private

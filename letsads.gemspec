@@ -12,8 +12,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Kanstansin Klachkou']
   s.email       = 'kanstantsin.klachkou@gmail.com'
   s.files       = ['lib/letsads.rb', 'lib/letsads/version.rb', 'Gemfile', 'letsads.gemspec', 'LICENSE']
-  s.homepage    =
-    'http://rubygems.org/gems/letsads'
+  s.homepage    = 'http://rubygems.org/gems/letsads'
   s.license     = 'MIT'
 
   s.add_runtime_dependency 'rest-client', '~> 2.0'

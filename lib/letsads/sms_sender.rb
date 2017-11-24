@@ -1,8 +1,10 @@
 class Letsads::SmsSender
   attr_reader :phone_numbers, :message
 
-  def send_sms phone_numbers, message
-    post_xml api_endpoint, generated_xml(phone_numbers, message)
+  def send_sms(phone_numbers, message)
+    xml = generated_xml(phone_numbers, message)
+
+    post_xml(api_endpoint, xml)
   end
 
   private
@@ -11,14 +13,14 @@ class Letsads::SmsSender
     Letsads::EXTERNAL_API_ENDPOINT
   end
 
-  def post_xml url_string, xml_string
-    response = RestClient.post api_endpoint, xml_string , {:content_type => :xml}
+  def post_xml(url_string, xml_string)
+    response = RestClient.post(api_endpoint, xml_string, { content_type: :xml })
 
     response.code == 200 ? true : false
   end
 
-  def generated_xml phone_numbers, message
-   @generated_xml ||= xml_builder.send_sms_xml phone_numbers, message
+  def generated_xml(phone_numbers, message)
+   @generated_xml ||= xml_builder.send_sms_xml(phone_numbers, message)
   end
 
   def xml_builder
