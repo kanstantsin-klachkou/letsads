@@ -2,17 +2,13 @@ class Letsads::SmsSender
   def send_sms(phone_numbers, message)
     xml = generated_xml(phone_numbers, message)
 
-    response = post_xml(api_endpoint, xml)
-
-    Hash.from_xml(response.body)
+    post_xml(api_endpoint, xml)
   end
 
   def current_balance
     xml = xml_builder.balance_xml
 
-    response = post_xml(api_endpoint, xml)
-
-    Hash.from_xml(response.body)
+    post_xml(api_endpoint, xml)
   end
 
   private

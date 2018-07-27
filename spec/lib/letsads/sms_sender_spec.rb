@@ -24,7 +24,8 @@ describe Letsads::SmsSender do
       expect(xml_builder).to receive(:send_sms_xml).with(one_number, message) { generated_xml }
 
       sending_process_result = sms_sender.send_sms(one_number, message)
-      expect(sending_process_result).to be(true)
+
+      expect(sending_process_result.code).to eq(200)
     end
   end
 end

@@ -7,7 +7,7 @@ class Letsads::XMLBuilder
           xml.password Letsads::Configuration.password
         }
         xml.message {
-          xml.from Letsads::Configuration.sender if Letsads::Configuration.sender.present?
+          xml.from Letsads::Configuration.sender
           xml.text_ text
           recipients.each do |recipient|
             xml.recipient recipient

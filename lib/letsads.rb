@@ -1,4 +1,3 @@
-require 'active_support/core_ext/hash'
 require 'nokogiri'
 require 'pry'
 require 'rest-client'
