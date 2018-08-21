@@ -19,6 +19,20 @@ class Letsads::XMLBuilder
     builder.to_xml(save_with: 0).gsub('\n', '')
   end
 
+  def sms_state_xml(id)
+    builder = ::Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
+      xml.request {
+        xml.auth {
+          xml.login Letsads::Configuration.login
+          xml.password Letsads::Configuration.password
+        }
+        xml.sms_id id
+      }
+    end
+
+    builder.to_xml(save_with: 0).gsub('\n', '')
+  end
+
   def balance_xml
     builder = ::Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
       xml.request {
